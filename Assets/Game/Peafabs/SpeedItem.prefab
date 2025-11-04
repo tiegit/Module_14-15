@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ec1adaeaf94e72945ab5182fcced4def, type: 2}
+  - {fileID: 2100000, guid: cdade30b7637b1d42bd870c90162e62d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,5 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b47d51a3626aff94a9c6aff4f25ae6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particlePrefab: {fileID: 0}
+  _topParticlePrefab: {fileID: 0}
+  _bottomParticlePrefab: {fileID: 6180905238299086047, guid: aaf4be7cc0a65c144ba25a80659da2a6,
+    type: 3}
+  _topParticleSpawnpoint: {fileID: 7865747018109027699}
   _speedIncrease: 2

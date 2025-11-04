@@ -31,7 +31,7 @@ public class Character : MonoBehaviour
 
         _inventory = new Inventory();
 
-        InventoryItemSetter itemSetter = new InventoryItemSetter(_itemHolder, _inventory);
+        InventoryItemSetter itemSetter = new InventoryItemSetter(transform, _itemHolder, _inventory);
         _characterInteraction.Initialize(itemSetter);
 
         _mover = new DirectionalMover(_playerInput, _rigidbody, _characterStats);

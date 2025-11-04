@@ -2,11 +2,13 @@
 
 public class InventoryItemSetter
 {
+    private Transform _characterTransform;
     private Transform _itemHolder;
     private Inventory _inventory;
 
-    public InventoryItemSetter(Transform itemHolder, Inventory inventory)
+    public InventoryItemSetter(Transform characterTransform, Transform itemHolder, Inventory inventory)
     {
+        _characterTransform = characterTransform;
         _itemHolder = itemHolder;
         _inventory = inventory;
     }
@@ -15,13 +17,11 @@ public class InventoryItemSetter
     {
         if (_inventory.IsEmpty == false)
         {
-            Debug.Log($"<color=yellow>Инвентарь полон, нужно воспользоваться ранее подобранным предметом. Для использования нажми F</color>");
+            Debug.Log($"<color=orange>Инвентарь полон, нужно воспользоваться ранее подобранным предметом. Для использования нажми F</color>");
             return;
         }
 
-        item.transform.SetParent(_itemHolder);
-        item.transform.localPosition = Vector3.zero;
-        item.transform.localRotation = Quaternion.identity;
+        item.Initialize(_characterTransform, _itemHolder);
 
         _inventory.SetItem(item);
 

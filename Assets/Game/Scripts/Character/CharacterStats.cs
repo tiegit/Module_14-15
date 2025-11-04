@@ -4,7 +4,7 @@ public class CharacterStats
 {
     private const string StatNameHealth = "Здоровье";
     private const string StatNameSpeed = "Скорость движения";
-    private const string HealthColor = "green";
+    private const string HealthColor = "yellow";
     private const string SpeedColor = "cyan";
 
     private float _healthValue;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent (typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody))]
 public class ProjectileItem : Item
 {
     [SerializeField] private float _projectileSpeed = 10f;

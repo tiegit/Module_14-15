@@ -178,6 +178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02298e58f7b9d324b875ae5017a95ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particlePrefab: {fileID: 0}
+  _topParticlePrefab: {fileID: 2933196813820417685, guid: 38d8deca0d624ca42abb5d381a24bd66,
+    type: 3}
+  _bottomParticlePrefab: {fileID: 0}
+  _topParticleSpawnpoint: {fileID: 7043557129894231908}
   _projectileSpeed: 30
   _projectileLifeTime: 3

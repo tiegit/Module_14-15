@@ -150,5 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4409f33869a42c14386900b2cf3bceec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particlePrefab: {fileID: 0}
+  _topParticlePrefab: {fileID: 0}
+  _bottomParticlePrefab: {fileID: 3337831785604551753, guid: 2fcd31f2bcfe632439e171630b8d8641,
+    type: 3}
+  _topParticleSpawnpoint: {fileID: 7865747018109027699}
   _healthIncrease: 20
