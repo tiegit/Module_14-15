@@ -7,6 +7,9 @@ public class HealthItem : Item
     public override void Use(CharacterStats characterStats)
     {
         characterStats.AddHealth(_healthIncrease);
-        ApplyEffectAndDestroy();
+
+        ApplyEffect();
+
+        DestroyItem();
     }
 }

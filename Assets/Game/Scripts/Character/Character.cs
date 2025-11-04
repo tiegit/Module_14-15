@@ -31,11 +31,11 @@ public class Character : MonoBehaviour
 
         _inventory = new Inventory();
 
-        ItemSetter itemSetter = new ItemSetter(_itemHolder, _inventory);
+        InventoryItemSetter itemSetter = new InventoryItemSetter(_itemHolder, _inventory);
         _characterInteraction.Initialize(itemSetter);
 
-        _mover = new DirectionalMover(_playerInput, _rigidbody, _characterStats.CurrentMoveSpeed);
-        _rotator = new DirectionalRotator(_playerInput, _rigidbody, _characterStats.CurrentRotationSpeed);
+        _mover = new DirectionalMover(_playerInput, _rigidbody, _characterStats);
+        _rotator = new DirectionalRotator(_playerInput, _rigidbody, _characterStats);
     }
 
     private void FixedUpdate()
@@ -44,14 +44,20 @@ public class Character : MonoBehaviour
         _rotator.CustomFixedUpdate(Time.deltaTime);
     }
 
-    public void UseItem() => _inventory.CurrentItem.Use(_characterStats);
+    public void UseItem()
+    {
+        if (_inventory.IsEmpty)
+            return;
+
+        _inventory.UseCurrentItem(_characterStats);
+    }
 
     public void Reset()
     {
         transform.position = _initialPosition;
         transform.rotation = _initialRotation;
 
-        _inventory.Reset();
+        _inventory.ClearCurrentItem();
         _characterStats.Reset();
     }
 }

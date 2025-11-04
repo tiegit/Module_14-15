@@ -6,14 +6,13 @@ public class DirectionalRotator
 
     private PlayerInput _playerInput;
     private Rigidbody _rigidbody;
+    CharacterStats _characterStats;
 
-    private float _rotationSpeed;
-
-    public DirectionalRotator(PlayerInput playerInput, Rigidbody rigidbody, float rotationSpeed)
+    public DirectionalRotator(PlayerInput playerInput, Rigidbody rigidbody, CharacterStats characterStats)
     {
         _playerInput = playerInput;
         _rigidbody = rigidbody;
-        _rotationSpeed = rotationSpeed;
+        _characterStats = characterStats;
     }
 
     public void CustomFixedUpdate(float deltaTime)
@@ -27,7 +26,7 @@ public class DirectionalRotator
 
         Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
 
-        float lerpFactor = Mathf.Clamp01(_rotationSpeed * deltaTime);
+        float lerpFactor = Mathf.Clamp01(_characterStats.CurrentRotationSpeed * deltaTime);
         Quaternion newRotation = Quaternion.Slerp(_rigidbody.transform.rotation, targetRotation, lerpFactor);
 
         _rigidbody.MoveRotation(newRotation);

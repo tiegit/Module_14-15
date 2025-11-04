@@ -7,6 +7,9 @@ public class SpeedItem : Item
     public override void Use(CharacterStats characterStats)
     {
         characterStats.AddMoveSpeed(_speedIncrease);
-        ApplyEffectAndDestroy();
+
+        ApplyEffect();
+
+        DestroyItem();
     }
 }

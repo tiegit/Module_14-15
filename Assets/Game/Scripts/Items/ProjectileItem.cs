@@ -1,19 +1,22 @@
 ﻿using UnityEngine;
 
+[RequireComponent (typeof(Rigidbody))]
 public class ProjectileItem : Item
 {
-    private const float _projectileSpeed = 10f;
-    [SerializeField] private GameObject _projectilePrefab;
+    [SerializeField] private float _projectileSpeed = 10f;
+    [SerializeField] private float _projectileLifeTime = 3f;
 
     public override void Use(CharacterStats characterStats)
     {
-        GameObject projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+        if (TryGetComponent(out Rigidbody rigidbody))
+        {
+            rigidbody.isKinematic = false;
 
-        Rigidbody rigidbody = projectile.GetComponent<Rigidbody>();
-
-        if (rigidbody != null)
             rigidbody.velocity = transform.forward * _projectileSpeed;
+        }
 
-        ApplyEffectAndDestroy();
+        ApplyEffect();
+
+        DestroyItem(_projectileLifeTime);
     }
 }

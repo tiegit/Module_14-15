@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class CharacterStats
 {
+    private const string StatNameHealth = "Здоровье";
+    private const string StatNameSpeed = "Скорость движения";
+    private const string HealthColor = "green";
+    private const string SpeedColor = "cyan";
+
     private float _healthValue;
     private float _moveSpeed;
     private float _rotationSpeed;
@@ -17,16 +22,24 @@ public class CharacterStats
     public float CurrentMoveSpeed { get; private set; }
     public float CurrentRotationSpeed { get; private set; }
 
-    public void AddHealth(float amount)
-    {
-        CurrentHealth += amount;
-        Debug.Log($"Здоровье игрока обновилось и теперь составляет: {CurrentHealth}");
-    }
+    public void AddHealth(float amount) => CurrentHealth = AddToStat(CurrentHealth, amount, StatNameHealth, HealthColor);
 
-    public void AddMoveSpeed(float amount)
+    public void AddMoveSpeed(float amount) => CurrentMoveSpeed = AddToStat(CurrentMoveSpeed, amount, StatNameSpeed, SpeedColor);
+
+    private float AddToStat(float currentValue, float amount, string statName, string color)
     {
-        CurrentRotationSpeed += amount;
-        Debug.Log($"Скорость игрока обновилось и теперь составляет: {CurrentRotationSpeed}");
+        if (amount < 0)
+        {
+            Debug.LogWarning($"Попытка добавить отрицательное {statName.ToLower()}.");
+
+            return currentValue;
+        }
+
+        float newValue = currentValue + amount;
+
+        Debug.Log($"<color={color}>Характеристика \"{statName}\" игрока обновилась и теперь составляет: {newValue}</color>");
+
+        return newValue;
     }
 
     public void Reset()

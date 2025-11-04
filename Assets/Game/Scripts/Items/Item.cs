@@ -6,11 +6,11 @@ public abstract class Item : MonoBehaviour
 
     public abstract void Use(CharacterStats characterStats);
 
-    protected void ApplyEffectAndDestroy()
+    protected virtual void DestroyItem(float delay = 0) => Destroy(gameObject, delay);
+
+    public void ApplyEffect()
     {
         if (_particlePrefab != null)
             Instantiate(_particlePrefab, transform.position, Quaternion.identity);
-
-        Destroy(gameObject);
     }
 }

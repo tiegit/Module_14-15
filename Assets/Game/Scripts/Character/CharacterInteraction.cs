@@ -2,9 +2,9 @@
 
 public class CharacterInteraction : MonoBehaviour
 {
-    private ItemSetter _itemSetter;
+    private InventoryItemSetter _itemSetter;
 
-    public void Initialize(ItemSetter itemSetter)
+    public void Initialize(InventoryItemSetter itemSetter)
     {
         _itemSetter = itemSetter;
     }
