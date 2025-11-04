@@ -16,6 +16,8 @@ public class CharacterStats
         CurrentHealth = _healthValue = health;
         CurrentMoveSpeed = _moveSpeed = moveSpeed;
         CurrentRotationSpeed = _rotationSpeed = rotationSpeed;
+
+        Debug.Log($"<color=purple>Характеристики игрока \"{StatNameHealth}\": {CurrentHealth}, \"{StatNameSpeed}\": {CurrentMoveSpeed}</color>");
     }
 
     public float CurrentHealth { get; private set; }

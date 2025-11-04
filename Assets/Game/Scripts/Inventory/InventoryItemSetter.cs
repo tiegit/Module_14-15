@@ -25,6 +25,6 @@ public class InventoryItemSetter
 
         _inventory.SetItem(item);
 
-        Debug.Log($"<color=white>В инвентарь добавлен предмет типа {item.name}. Для использования нажми F</color>");
+        Debug.Log($"<color=white>В инвентарь добавлен предмет типа {item.GetType().Name}. Для использования нажми F</color>");
     }
 }

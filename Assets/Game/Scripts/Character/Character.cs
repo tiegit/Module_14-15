@@ -47,7 +47,10 @@ public class Character : MonoBehaviour
     public void UseItem()
     {
         if (_inventory.IsEmpty)
+        {
+            Debug.Log($"<color=white>Инвентарь пуст. Сначала найди предмет для исользования</color>");
             return;
+        }
 
         _inventory.UseCurrentItem(_characterStats);
     }
